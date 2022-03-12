@@ -1,9 +1,14 @@
-fun main(){
-    val amount = 30020_00
-    val percentCommission = amount * 75 / 100_00
+fun main() {
+    val previousPurchaseAmount = 3000_00
+    val purchaseAmount = 100_00
+    val regularCustomer = true
 
-    val commission = if (percentCommission < 35_00) 35_00 else percentCommission
+    val costAmount = if (previousPurchaseAmount < 1_000_00) purchaseAmount else
+        if (previousPurchaseAmount < 10_000_00) purchaseAmount - 100_00 else purchaseAmount * 95 / 100
 
-    println("${commission / 100} рублей ${commission % 100} копеек")
+    val cost = if (regularCustomer) costAmount * 99 / 100 else costAmount
+
+
+    println("Стоимость покупки ${cost / 100} рублей ${cost % 100} копеек")
 
 }
